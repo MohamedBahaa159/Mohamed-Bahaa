@@ -283,17 +283,33 @@ body{
 }
 }
 
-@media(max-width:300px){
+@media(max-width:373px){
 
 body{
-    font-size: 10px;
+    font-size: 8px;
+}
+.header{
+    padding: 8px 12px;
 }
 
-}
 
 .wicon{
 font-size: 5em;
 }
+}
+@media(max-width:200px){
+
+.navigation a{
+    font-size: 1em;
+
+}
+
+
+
+
+
+}
+
 
 
 
