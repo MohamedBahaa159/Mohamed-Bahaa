@@ -624,35 +624,53 @@ Contact Me
 </footer>
 <audio id="shoot-sound" src="https://cdn.pixabay.com/audio/2023/03/01/audio_2e3ce82e0a.mp3"></audio>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const bg = document.querySelector('.space-bg');
-      const shootSound = document.getElementById('shoot-sound');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const bg = document.body; // خلي النجوم والشهب في كل الصفحة مش عنصر معين
+    const shootSound = new Audio("https://cdn.pixabay.com/audio/2023/03/01/audio_2e3ce82e0a.mp3");
 
-      // Create slow-moving stars (restored)
-      for (let i = 0; i < 60; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.left = Math.random() * window.innerWidth + 'px';
-        star.style.top = Math.random() * window.innerHeight + 'px';
-        bg.appendChild(star);
-      }
+    // نجوم بطيئة (background)
+    const STAR_COUNT = 80;
+    for (let i = 0; i < STAR_COUNT; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = `${Math.random() * window.innerWidth}px`;
+      star.style.top = `${Math.random() * window.innerHeight}px`;
+      star.style.animationDuration = `${30 + Math.random() * 50}s`;
+      bg.appendChild(star);
+    }
 
-      // Shooting stars
-      function createShootingStar() {
-        const star = document.createElement('div');
-        star.className = 'shooting-star';
-        star.style.left = Math.random() * window.innerWidth + 'px';
-        star.style.top = Math.random() * (window.innerHeight * 0.4) + 'px';
-        bg.appendChild(star);
-        shootSound.currentTime = 0;
-        shootSound.play();
-        setTimeout(() => star.remove(), 1000);
-      }
+    // دالة إنشاء شهاب
+    function createShootingStar() {
+      const shootingStar = document.createElement('div');
+      shootingStar.className = 'shooting-star';
 
-      setInterval(createShootingStar, 2800);
-    });
-  </script>
+      // أماكن عشوائية وواقعية (تبدأ من أعلى وتروح باتجاه أسفل يمين)
+      const startX = Math.random() * window.innerWidth * 0.8;
+      const startY = Math.random() * window.innerHeight * 0.3;
+
+      shootingStar.style.left = `${startX}px`;
+      shootingStar.style.top = `${startY}px`;
+
+      // تشغيل الصوت
+      shootSound.currentTime = 0;
+      shootSound.play();
+
+      bg.appendChild(shootingStar);
+
+      // حذف العنصر بعد انتهاء الأنيميشن
+      setTimeout(() => {
+        shootingStar.remove();
+      }, 800);
+    }
+
+    // تقليل عدد مرات ظهور الشهب (كل 3 ثواني تقريبًا)
+    setInterval(() => {
+      if (Math.random() < 0.8) return; // تقليل بنسبة 20%
+      createShootingStar();
+    }, 3000);
+  });
+</script>
 
 
 
