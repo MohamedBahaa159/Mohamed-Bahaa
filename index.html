@@ -31,48 +31,76 @@ background: #050117;
 position: relative;
 overflow: hidden;
 }
+.space-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* دائرة توهج */
+.glow-circle {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #8B5CF6cc, #8B5CF63d, transparent);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: pulse 8s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* النجوم */
 .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      background: white;
-      opacity: 0.8;
-      box-shadow: 0 0 8px rgba(255,255,255,.4);
-      animation: starMove 40s linear infinite;
-    }
+  position: absolute;
+  width: 1.5px;
+  height: 1.5px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.8;
+  box-shadow: 0 0 6px rgba(255,255,255,0.4);
+  animation: starMove linear infinite;
+}
+@keyframes starMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(30px); }
+}
 
-    @keyframes starMove {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(40px); }
-    }
-
-    .shooting-star {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: white;
-      opacity: 0.95;
-      box-shadow: 0 0 10px rgba(255,255,255,.6);
-      animation: shoot linear 0.6s forwards;
-    }
-
-    .shooting-star::after {
-      content: '';
-      position: absolute;
-      width: 160px;
-      height: 2px;
-      background: linear-gradient(to right, white, transparent);
-      transform: rotate(38deg);
-      transform-origin: left center;
-    }
-
-    @keyframes shoot {
-      0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
-      100% { transform: translate(200px, 240px) scale(1); opacity: 0; }
-    }
-
+/* الشهب */
+.shooting-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: white;
+  opacity: 1;
+  box-shadow: 0 0 8px rgba(255,255,255,0.7);
+  animation: shoot linear 1s forwards;
+}
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(to right, white, transparent);
+  transform: rotate(38deg);
+  transform-origin: left center;
+}
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(300px, 350px) scale(0.8);
+    opacity: 0;
+  }
+}
 
 
 .glow-circle {
@@ -626,10 +654,13 @@ Contact Me
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const bg = document.body; // خلي النجوم والشهب في كل الصفحة مش عنصر معين
+    const bg = document.createElement('div');
+    bg.className = 'space-bg';
+    document.body.appendChild(bg);
+
     const shootSound = new Audio("https://cdn.pixabay.com/audio/2023/03/01/audio_2e3ce82e0a.mp3");
 
-    // نجوم بطيئة (background)
+    // نجوم ثابتة تتحرك ببطء
     const STAR_COUNT = 80;
     for (let i = 0; i < STAR_COUNT; i++) {
       const star = document.createElement('div');
@@ -640,33 +671,28 @@ Contact Me
       bg.appendChild(star);
     }
 
-    // دالة إنشاء شهاب
+    // الشهب تظهر بشكل عشوائي من فوق
     function createShootingStar() {
       const shootingStar = document.createElement('div');
       shootingStar.className = 'shooting-star';
 
-      // أماكن عشوائية وواقعية (تبدأ من أعلى وتروح باتجاه أسفل يمين)
       const startX = Math.random() * window.innerWidth * 0.8;
       const startY = Math.random() * window.innerHeight * 0.3;
 
       shootingStar.style.left = `${startX}px`;
       shootingStar.style.top = `${startY}px`;
 
-      // تشغيل الصوت
       shootSound.currentTime = 0;
       shootSound.play();
 
       bg.appendChild(shootingStar);
 
-      // حذف العنصر بعد انتهاء الأنيميشن
-      setTimeout(() => {
-        shootingStar.remove();
-      }, 800);
+      setTimeout(() => shootingStar.remove(), 1200);
     }
 
-    // تقليل عدد مرات ظهور الشهب (كل 3 ثواني تقريبًا)
+    // تقليل عدد مرات ظهور الشهب
     setInterval(() => {
-      if (Math.random() < 0.8) return; // تقليل بنسبة 20%
+      if (Math.random() < 0.8) return; // ظهور بنسبة 20%
       createShootingStar();
     }, 3000);
   });
