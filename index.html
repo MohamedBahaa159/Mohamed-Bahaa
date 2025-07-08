@@ -55,49 +55,22 @@ overflow: hidden;
   50% { transform: scale(1.1); opacity: 1; }
 }
 
-/* النجوم */
 .star {
   position: absolute;
-  width: 1.5px;
-  height: 1.5px;
-  border-radius: 50%;
   background: white;
-  opacity: 0.8;
-  box-shadow: 0 0 6px rgba(255,255,255,0.4);
-  animation: starMove linear infinite;
-}
-@keyframes starMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(30px); }
-}
-
-/* الشهب */
-.shooting-star {
-  position: absolute;
-  width: 4px;
-  height: 4px;
   border-radius: 50%;
-  background: white;
-  opacity: 1;
-  box-shadow: 0 0 8px rgba(255,255,255,0.7);
-  animation: shoot linear 1s forwards;
+  opacity: 0.5;
+  transform: rotate(45deg);
+  animation: shooting-slow var(--duration) linear infinite;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
 }
-.shooting-star::after {
-  content: '';
-  position: absolute;
-  width: 200px;
-  height: 2px;
-  background: linear-gradient(to right, white, transparent);
-  transform: rotate(38deg);
-  transform-origin: left center;
-}
-@keyframes shoot {
+@keyframes shooting-slow {
   0% {
-    transform: translate(0, 0) scale(0.4);
+    transform: translate(0, 0) rotate(45deg);
     opacity: 1;
   }
   100% {
-    transform: translate(300px, 350px) scale(0.8);
+    transform: translate(200px, 200px) rotate(45deg);
     opacity: 0;
   }
 }
@@ -651,53 +624,23 @@ Contact Me
 </div>
 </footer>
 <audio id="shoot-sound" src="https://cdn.pixabay.com/audio/2023/03/01/audio_2e3ce82e0a.mp3"></audio>
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const bg = document.createElement('div');
-    bg.className = 'space-bg';
-    document.body.appendChild(bg);
-
-    const shootSound = new Audio("https://cdn.pixabay.com/audio/2023/03/01/audio_2e3ce82e0a.mp3");
-
-    // نجوم ثابتة تتحرك ببطء
-    const STAR_COUNT = 80;
-    for (let i = 0; i < STAR_COUNT; i++) {
+    const bg = document.querySelector('.space-bg');
+    const count = 50;
+    for (let i = 0; i < count; i++) {
       const star = document.createElement('div');
-      star.className = 'star';
-      star.style.left = `${Math.random() * window.innerWidth}px`;
-      star.style.top = `${Math.random() * window.innerHeight}px`;
-      star.style.animationDuration = `${30 + Math.random() * 50}s`;
+      star.classList.add('star');
+      const size = Math.random() * 2 + 1;
+      star.style.width = star.style.height = `${size}px`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.setProperty('--duration', `${Math.random() * 8 + 5}s`);
+      star.style.animationDelay = `${Math.random() * 5}s`;
       bg.appendChild(star);
     }
-
-    // الشهب تظهر بشكل عشوائي من فوق
-    function createShootingStar() {
-      const shootingStar = document.createElement('div');
-      shootingStar.className = 'shooting-star';
-
-      const startX = Math.random() * window.innerWidth * 0.8;
-      const startY = Math.random() * window.innerHeight * 0.3;
-
-      shootingStar.style.left = `${startX}px`;
-      shootingStar.style.top = `${startY}px`;
-
-      shootSound.currentTime = 0;
-      shootSound.play();
-
-      bg.appendChild(shootingStar);
-
-      setTimeout(() => shootingStar.remove(), 1200);
-    }
-
-    // تقليل عدد مرات ظهور الشهب
-    setInterval(() => {
-      if (Math.random() < 0.8) return; // ظهور بنسبة 20%
-      createShootingStar();
-    }, 3000);
   });
 </script>
-
 
 
 <script id="scrollAnimation">
