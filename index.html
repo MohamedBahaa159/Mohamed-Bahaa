@@ -4,931 +4,982 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohamed Bahaa</title>
-  <link rel="stylesheet" href="npm i framer-motion">
+  <title>Mo Bahaa | UI/UX Portfolio</title>
+
   <meta name="description"
-    content="Mohamed Bahaa's portfolio showcasing UI/UX design projects, technologies used, and contact information.">
-  <meta name="keywords"
-    content="UI/UX Design, Portfolio, Mohamed Bahaa, Web Design, Mobile Apps Design, Figma, Adobe XD, HTML5, CSS3, JavaScript, Git, Behance, LinkedIn">
-  <meta name="author" content="Mohamed Bahaa">
-  <meta property="og:title" content="Mohamed Bahaa">
-  <link rel="icon" type="image/png" href="logo.png">
-  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-  <script>tailwind.config = { theme: { extend: { colors: { primary: '#8B5CF6', secondary: '#C084FC' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    content="Mo Bahaa's portfolio showcasing UI/UX design projects, technologies used, and contact information.">
+  <meta name="keywords" content="UI/UX Design, Portfolio, Mo Bahaa, Web Design, Mobile Apps Design, Figma, Adobe XD">
+  <meta name="author" content="Mo Bahaa">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'blob': 'blob 7s infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'brand-entry': 'brandEntry 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+            'text-refine': 'textRefine 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+            'accent-reveal': 'accentReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+            'content-fade-out': 'contentFadeOut 0.4s ease-out forwards',
+            'line-appear': 'lineAppear 0.4s ease-out forwards',
+            'panel-up': 'panelUp 0.8s cubic-bezier(0.6, 0, 0.2, 1) forwards',
+            'panel-down': 'panelDown 0.8s cubic-bezier(0.6, 0, 0.2, 1) forwards',
+            'hero-enter': 'heroEnter 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+            'fade-in': 'fadeIn 1s ease-out forwards',
+            'marquee': 'marquee 40s linear infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            },
+            float: {
+              '0%': { transform: 'translateY(0px) rotate(3deg)' },
+              '50%': { transform: 'translateY(-20px) rotate(0deg)' },
+              '100%': { transform: 'translateY(0px) rotate(3deg)' },
+            },
+            brandEntry: {
+              '0%': { opacity: '0', transform: 'translateY(12px)', filter: 'blur(8px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
+            },
+            textRefine: {
+              '0%': { letterSpacing: '0.05em', opacity: '0.9' },
+              '100%': { letterSpacing: '-0.01em', opacity: '1' },
+            },
+            accentReveal: {
+              '0%': { transform: 'scaleX(0)', opacity: '0' },
+              '100%': { transform: 'scaleX(1)', opacity: '1' },
+            },
+            contentFadeOut: {
+              '0%': { opacity: '1', transform: 'scale(1)' },
+              '100%': { opacity: '0', transform: 'scale(0.98)' },
+            },
+            lineAppear: {
+              '0%': { opacity: '0', transform: 'scaleX(0)' },
+              '100%': { opacity: '0.4', transform: 'scaleX(1)' },
+            },
+            panelUp: {
+              '0%': { transform: 'translateY(0)' },
+              '100%': { transform: 'translateY(-100%)' },
+            },
+            panelDown: {
+              '0%': { transform: 'translateY(0)' },
+              '100%': { transform: 'translateY(100%)' },
+            },
+            heroEnter: {
+              '0%': { opacity: '0', transform: 'translateY(20px) scale(0.98)' },
+              '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :where([class^="ri-"])::before {
-      content: "\f3c2";
-    }
-
     body {
-      font-family: 'SF PRO', ;
-      background-color: #050117;
-
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
-    html,
-    body {
-      min-height: 100%;
-      overflow-y: auto;
-      overflow-x: hidden;
+    #splash-screen {
+      pointer-events: none;
     }
 
-    .space-bg {
+    #app-content,
+    #main-header {
+      will-change: opacity, transform;
+    }
 
-      background: #050117;
+    .content-hidden {
+      opacity: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-shine {
       position: relative;
       overflow: hidden;
     }
 
-
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.5;
-      transform: rotate(45deg);
-      animation: shooting-slow var(--duration) linear infinite;
-      box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
-    }
-
-    @keyframes shooting-slow {
-      0% {
-        transform: translate(0, 0) rotate(45deg);
-        opacity: 1;
-      }
-
-      100% {
-        transform: translate(200px, 200px) rotate(45deg);
-        opacity: 0;
-      }
-    }
-
-    .glow-circle {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, rgba(139, 92, 246, 0.3) 30%, rgba(139, 92, 246, 0) 70%);
-      border-radius: 50%;
-      filter: blur(20px);
-      animation: pulse 8s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.7;
-      }
-
-      50% {
-        transform: scale(1.1);
-        opacity: 1;
-      }
-    }
-
-    .tech-icon {
-      transition: all 0.3s ease;
-
-    }
-
-    .tech-icon:hover {
-      transform: translateY(-5px);
-      filter: brightness(1.2);
-    }
-
-    .project-card {
-      transition: all 0.3s ease;
-      background: rgba(30, 20, 60, 0.4);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(139, 92, 246, 0.2);
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.3);
-      border: 1px solid rgba(139, 92, 246, 0.4);
-    }
-
-    .nav-link {
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .nav-link::after {
+    .btn-shine::after {
       content: '';
       position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #8B5CF6;
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .nav-link:hover {
-      color: #8B5CF6;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #5c2fc5 0%, #7f44ba 100%);
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 15px -5px rgba(139, 92, 246, 0.5);
-    }
-
-    .tech-grid {
-      position: relative;
-      z-index: 2;
-    }
-
-    .tech-grid-bg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0;
+      left: -100%;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(139, 92, 246, 0.1) 40%, rgba(139, 92, 246, 0) 70%);
-      filter: blur(40px);
-      z-index: 1;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: transform 0.5s;
     }
 
-    .footer-link {
-      transition: all 0.3s ease;
+    .btn-shine:hover::after {
+      transform: translateX(200%);
     }
 
-    .footer-link:hover {
-      color: #8B5CF6;
+    input:-webkit-autofill,
+    textarea:-webkit-autofill {
+      -webkit-text-fill-color: white;
+      -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
     }
 
-    .social-icon {
-      transition: all 0.3s ease;
-    }
-
-    .social-icon:hover {
-      transform: translateY(-3px);
-      color: #8B5CF6;
+    /* Pause marquee on hover */
+    .pause-marquee:hover .animate-marquee {
+      animation-play-state: paused;
     }
   </style>
 </head>
 
-<body class="space-bg text-white">
-  <!-- Navigation -->
-  <nav
-    class=" fixed top-0 left-0 w-full z-50 px-6 py-4 bg-opacity-10 backdrop-blur-md bg-black/30 border-b border-purple-900/20">
-    <div class="container mx-auto flex justify-between items-center">
-      <a href="#" class="text-2xl font-['Pacifico'] text-white">MO.Bahaa</a>
-      <div class="hidden md:flex space-x-8">
-        <a href="#home" class="nav-link text-gray-200 hover:text-white">Home</a>
-        <a href="#technologies" class="nav-link text-gray-200 hover:text-white">Technologies</a>
-        <a href="#projects" class="nav-link text-gray-200 hover:text-white">Projects</a>
-        <a href="#contact" class="nav-link text-gray-200 hover:text-white">Contact</a>
+<body class="bg-white text-slate-900 selection:bg-indigo-100 selection:text-indigo-900 overflow-x-hidden">
+
+  <div id="splash-screen" class="fixed inset-0 z-[100] flex flex-col h-screen w-screen">
+    <div id="splash-top"
+      class="relative flex-1 bg-slate-950 w-full overflow-hidden origin-top z-20 transition-transform duration-700">
+    </div>
+    <div id="splash-bottom"
+      class="relative flex-1 bg-slate-950 w-full overflow-hidden origin-bottom z-20 transition-transform duration-700">
+    </div>
+    <div id="white-line"
+      class="absolute top-1/2 left-0 w-full h-[1px] bg-white opacity-0 z-30 animate-line-appear origin-center transition-opacity duration-300"
+      style="animation-delay: 2.8s;"></div>
+    <div id="splash-content"
+      class="absolute inset-0 flex flex-col items-center justify-center z-40 animate-content-fade-out"
+      style="animation-delay: 2.6s; animation-fill-mode: forwards;">
+      <div class="overflow-hidden mb-6">
+        <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight opacity-0 animate-brand-entry"
+          style="animation-delay: 0.6s;">
+          Mo Bahaa.
+        </h1>
       </div>
-      <div class="flex space-x-4">
-        <a href="https://www.instagram.com/mo.tiply?igsh=MTA5azludmtkcHdmMg==" target="_blank"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-black/30 hover:bg-purple-900/30">
-          <i class="ri-instagram-line "></i>
-        </a>
-        <a href="https://www.behance.net/mohamedbahaa46" target="_blank"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-black/30 hover:bg-purple-900/30">
-          <i class="ri-behance-fill"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/mohamed-bahaa-ab47722a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-          target="_blank"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-black/30 hover:bg-purple-900/30">
-          <i class="ri-linkedin-box-fill"></i>
-        </a>
+      <p class="text-xs font-medium text-slate-400 uppercase tracking-widest opacity-0 animate-text-refine"
+        style="animation-delay: 1.4s;">
+        UX / UI Designer
+      </p>
+      <div class="h-0.5 w-12 bg-indigo-500 mt-6 rounded-full opacity-0 animate-accent-reveal origin-center"
+        style="animation-delay: 1.8s;"></div>
+    </div>
+  </div>
+
+  <header id="main-header" class="fixed w-full z-50 transition-all duration-300 py-6 bg-transparent content-hidden">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+
+      <div onclick="window.showHome()" class="cursor-pointer flex items-center gap-3 group">
+        <span class="text-xl font-extrabold tracking-tight text-slate-900">Mo Bahaa<span
+            class="text-indigo-600">.</span></span>
       </div>
-      <button class="md:hidden w-10 h-10 flex items-center justify-center">
-        <i class="ri-menu-line text-xl"></i>
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobileMenu"
-          class="absolute right-6 top-16 bg-black/90 rounded-lg shadow-lg border border-purple-900/40 w-48 py-4 flex flex-col space-y-2 z-50 hidden">
-          <a href="#home" class="nav-link px-6 py-2 text-gray-200 hover:text-primary">Home</a>
-          <a href="#technologies" class="nav-link px-6 py-2 text-gray-200 hover:text-primary">Technologies</a>
-          <a href="#projects" class="nav-link px-6 py-2 text-gray-200 hover:text-primary">Projects</a>
-          <a href="#contact" class="nav-link px-6 py-2 text-gray-200 hover:text-primary">Contact</a>
-        </div>
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-            const menuBtn = document.querySelector('nav button.md\\:hidden');
-            const mobileMenu = document.getElementById('mobileMenu');
-            menuBtn.addEventListener('click', function (e) {
-              e.stopPropagation();
-              mobileMenu.classList.toggle('hidden');
-            });
-            // Hide menu when clicking outside
-            document.addEventListener('click', function (e) {
-              if (!mobileMenu.classList.contains('hidden')) {
-                if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                  mobileMenu.classList.add('hidden');
-                }
-              }
-            });
-            // Hide menu on nav link click
-            mobileMenu.querySelectorAll('a').forEach(link => {
-              link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-              });
-            });
-          });
-        </script>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#services" onclick="window.handleNavClick(event, 'services')"
+          class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors relative group">
+          Services <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#technologies" onclick="window.handleNavClick(event, 'technologies')"
+          class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors relative group">
+          Technologies <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#projects" onclick="window.handleNavClick(event, 'projects')"
+          class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors relative group">
+          Projects <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#testimonials" onclick="window.handleNavClick(event, 'testimonials')"
+          class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors relative group">
+          Testimonials <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <button onclick="window.handleNavClick(event, 'contact')"
+          class="btn-shine px-5 py-2 text-sm bg-indigo-600 text-white rounded-lg font-medium shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-1 transition-all">
+          Book a Call
+        </button>
+      </nav>
+
+      <button class="md:hidden text-slate-900" onclick="window.toggleMobileMenu()">
+        <i data-lucide="menu"></i>
       </button>
     </div>
-  </nav>
 
-
-
-  <!-- Hero Section -->
-  <section id="home"
-    class="animate-on-scroll min-h-screen w-full flex items-center justify-center relative pt-20 overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
-      <div class="glow-circle top-1/4 left-1/2 opacity-70"></div>
-    </div>
-    <div class="container mx-auto px-6 py-20 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-          <div class="inline-block px-4 py-1 rounded-full bg-purple-900/30 border border-purple-500/30 text-sm">
-            <span class="text-purple-300"> UX / UI Designer </span>
-          </div>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            Providing <span class="text-primary">The Best</span><br>
-            project experience
-          </h1>
-          <p class="text-gray-300 text-lg max-w-lg">
-            Transforming ideas into exceptional digital experiences with modern technologies and creative solutions that
-            drive business growth and user engagement.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#projects" class="btn-primary px-8 py-3 rounded-button font-medium whitespace-nowrap">
-              View Projects
-            </a>
-            <a href="#contact"
-              class="px-8 py-3 rounded-button font-medium border border-purple-500/50 hover:bg-purple-900/20 whitespace-nowrap">
-              Contact Me
-            </a>
-          </div>
-        </div>
-        <div class="relative flex justify-center">
-          <div class="relative w-full max-w-md aspect-square">
-            <div class="absolute inset-0 rounded-full bg-purple-600 blur-3xl opacity-20 animate-pulse"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <img src="Photoroom-20250117_025309.png" alt="Developer Portrait"
-                class="w-full h-full object-cover rounded-full">
-            </div>
-          </div>
-        </div>
+    <div id="mobile-menu"
+      class="hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 p-6 shadow-xl">
+      <div class="flex flex-col gap-4">
+        <a href="#services" onclick="window.handleNavClick(event, 'services')"
+          class="text-lg font-medium text-slate-700">Services</a>
+        <a href="#technologies" onclick="window.handleNavClick(event, 'technologies')"
+          class="text-lg font-medium text-slate-700">Technologies</a>
+        <a href="#projects" onclick="window.handleNavClick(event, 'projects')"
+          class="text-lg font-medium text-slate-700">Projects</a>
+        <a href="#testimonials" onclick="window.handleNavClick(event, 'testimonials')"
+          class="text-lg font-medium text-slate-700">Testimonials</a>
+        <button onclick="window.handleNavClick(event, 'contact')"
+          class="w-full mt-4 bg-indigo-600 text-white py-3 rounded-lg font-bold">Book a Call</button>
       </div>
     </div>
-  </section>
-  <!-- Technologies Section -->
+  </header>
 
-  <section id="technologies" class="animate-on-scroll py-20 relative z-index-1 padding-top-50px">
+  <main id="app-content" class="pt-20 content-hidden"></main>
 
+  <footer class="bg-slate-50 border-t border-slate-200 py-12 mt-auto">
     <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Unforgettable <Span class="text-primary">Experiences</span> with
-          Modern Technologies</h2>
-        <p class="text-gray-300 max-w-2xl mx-auto">Expertly crafted solutions using cutting-edge tools and frameworks
-        </p>
-      </div>
-      <div class="relative">
-        <div class="tech-grid-bg"></div>
-        <div class="tech-grid grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 justify-items-center">
-          <!-- Technologies Icons Grid (fixed spacing and all icons visible) -->
-          <!-- Each icon in its own grid cell, with vertical spacing between rows -->
-          <div class="tech-icon w-16 h-16 bg-pink-600/20 rounded-xl flex items-center justify-center my-3"
-            title="Figma">
-            <img src="Frame 14.svg" alt="Illustrator" class="w-10 h-10 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-blue-600/20 rounded-xl flex items-center justify-center my-3"
-            title="Adobe XD">
-            <img src="Frame 12.svg" alt="Adobe XD" class="w-10 h-10 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-blue-600/20 rounded-xl flex items-center justify-center my-3"
-            title="Adobe Photoshop">
-            <img src="Frame 13.svg" alt="Photoshop" class="w-10 h-10 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-orange-600/20 rounded-xl flex items-center justify-center my-3"
-            title="Adobe Illustrator">
-            <img src="figma-icon.svg" alt="Figma" class="w-10 h-10 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-red-600/20 rounded-xl flex items-center justify-center my-3"
-            title="Adobe After Effects">
-            <img src="adobe logo.svg" alt="Adobe After Effects" class="w-10 h-10 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-yellow-600/20 rounded-xl flex items-center justify-center my-3"
-            title="Adobe InDesign">
-            <img src="Frame 11.svg" alt="InDesign" class="w-10 h-10 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center my-3"
-            title="Sketch">
-            <img src="sketch logo.svg" alt="Sketch" class="w-9 h-9 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center my-3"
-            title="Visual Studio Code">
-            <img src="Visual logo.svg" alt="VS Code" class="w-10 h-10 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-yellow-600/100 rounded-xl flex items-center justify-center my-3"
-            title="Miro">
-            <img src="miro logo.svg" alt="Miro" class="w-8 h-8 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-orange-600/20 rounded-xl flex items-center justify-center my-3"
-            title="HTML5">
-            <img src="Vector.svg" alt="HTML5" class="w-8 h-8 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-blue-600/20 rounded-xl flex items-center justify-center my-3" title="CSS3">
-            <img src="Group.svg" alt="CSS3" class="w-8 h-8 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-red-600/20 rounded-xl flex items-center justify-center my-3" title="Git">
-            <img src="get.svg" alt="Git" class="w-10 h-10 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-blue-600/20 rounded-xl flex items-center justify-center my-3" title="Idea">
-            <img src="id.svg" alt="Id" class="w-8 h-8 object-contain">
-          </div>
-          <div class="tech-icon w-16 h-16 bg-red-600/20 rounded-xl flex items-center justify-center my-3"
-            title="Framer">
-            <img src="framer logo.svg" alt="Framer" class="w-10 h-10 object-contain">
-
-          </div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-center md:text-left">
+          <h4 class="font-bold text-xl text-slate-900 mb-2">Mo Bahaa.</h4>
+          <p class="text-slate-500">Transforming ideas into exceptional digital experiences.</p>
         </div>
-
-      </div>
-    </div>
-    </div>
-    </div>
-  </section>
-  <!-- Projects Section -->
-  <section id="projects" class="animate-on-scroll py-20">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">My Projects</h2>
-
-      <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-
-        <!-- Project 1 -->
-        <a class="project-card rounded-lg overflow-hidden" href="https://www.behance.net/gallery/207545999/Jobjzy-App">
-          <div class="relative h-56 overflow-hidden">
-            <img src="Mobile-Cover.png" alt="Jobzy Project" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">Jobzy - Job Finder App</h3>
-            <p class="text-gray-300">
-              A modern job search platform with AI-powered matching algorithm and intuitive user interface.
-            </p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Open in Behance</span>
-              <i class="ri-behance-line text-white text-base no-underline"></i>
-            </div>
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-blue-900/30 text-blue-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-yellow-900/30 text-green-300">Notion</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-purple-900/30 text-purple-300">FigJam</span>
-              </span>
-
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 2 -->
-        <a class="project-card rounded-lg overflow-hidden"
-          href="https://www.behance.net/gallery/226321377/HR-Dashboard">
-          <div class="relative h-56 overflow-hidden">
-            <img src="Dashboard.svg" alt="Dashboard Project" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">Interactive HR Dashboard</h3>
-            <p class="text-gray-300">Comprehensive HR analytics dashboard with real-time data visualization and employee
-              tracking.
-            </p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Open in Behance</span>
-              <i class="ri-behance-line text-white text-base no-underline"></i>
-            </div>
-
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-blue-900/30 text-blue-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-yellow-900/30 text-indigo-300">Miro</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 3 -->
-        <a class="project-card rounded-lg overflow-hidden" href="https://www.behance.net/gallery/230866713/_">
-          <div class="relative h-56 overflow-hidden">
-            <img src="head.png" alt="Portfolio" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">Saudi Council of Engineers Website</h3>
-            <p class="text-gray-300">The official website of the Saudi Council of Engineers offers essential services
-              and resources for engineers. It delivers a professional, user-friendly experience with easy access to
-              memberships, news, and e-services.
-            </p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Open In Behance</span>
-              <i class="ri-behance-line text-white text-base no-underline"></i>
-
-            </div>
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-red-900/30 text-orange-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-purple-900/30 text-orange-300">FigJam</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-yellow-900/30 text-yellow-300">Notion</span>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Extra Projects Hidden -->
-      <div id="extra-projects"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mt-8 opacity-0 translate-y-4 transition-all duration-700 ease-out hidden">
-        <!-- Extra Project 1 -->
-        <div class="project-card rounded-lg overflow-hidden">
-          <div class="relative h-56 overflow-hidden">
-            <img src="Dlevry.png" alt="Delivery App" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">Delivery App</h3>
-            <p class="text-gray-300">Clean and modern delivery UI with real-time tracking and smooth user experience.
-            </p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Coming Soon In Behance</span>
-              <i class="ri-time-fill text-white text-base no-underline"></i>
-            </div>
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-orange-900/30 text-orange-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-yellow-900/30 text-yellow-300">ChatGPT</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Extra Project 2 -->
-        <div class="project-card rounded-lg overflow-hidden">
-          <div class="relative h-56 overflow-hidden">
-            <img src="Preview.png" alt="Re-Design ChatGPT App" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">Re-Design ChatGPT App</h3>
-            <p class="text-gray-300">ChatGPT app redesign for better UI clarity and user experience. A personal practice
-              project.</p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Coming Soon In Behance</span>
-              <i class="ri-time-fill text-white text-base no-underline"></i>
-            </div>
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-blue-900/30 text-blue-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-green-900/30 text-green-300">UX</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Extra Project 3 -->
-        <a class="project-card rounded-lg overflow-hidden"
-          href="https://www.behance.net/gallery/229687311/Re-Design-iPad-Pro-Website">
-          <div class="relative h-56 overflow-hidden">
-            <img src="Component 12.png" alt="apple" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">iPad Pro Website – Redesign</h3>
-            <p class="text-gray-300">A self-initiated redesign of the iPad Pro webpage aiming to enhance clarity, flow,
-              and interactivity. The concept keeps Apple’s premium look while improving layout, accessibility, and
-              scroll experience.</p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Open In Behance</span>
-              <i class="ri-behance-line text-white text-base no-underline"></i>
-            </div>
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-purple-900/30 text-purple-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-yellow-900/30 text-yellow-300">Prototype</span>
-            </div>
-          </div>
-        </a>
-
-
-        <!-- Extra Project 4 -->
-        <a class="project-card rounded-lg overflow-hidden"
-          href="https://www.behance.net/gallery/230074281/Re-Design-SevenFortunes-Website">
-          <div class="relative h-56 overflow-hidden">
-            <video src="Seven Fortunes - Page 1 - Figma 2025-07-07 18-42-06 - Trim.webm" alt="Portfolio"
-              class="w-full h-full object-cover object-center" autoplay loop></video>
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">Re-Design SavenFourtens website</h3>
-            <p class="text-gray-300">Seven Fortunes is a specialty coffee brand offering a premium brewing experience
-              through high-quality beans and products.
-            </p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Open In Behance</span>
-              <i class="ri-behance-line text-white text-base no-underline"></i>
-
-            </div>
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-red-900/30 text-orange-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-purple-900/30 text-orange-300">FigJam</span>
-            </div>
-          </div>
-        </a>
-
-
-
-
-
-        <!-- Extra Project 5 -->
-
-        <div class="project-card rounded-lg overflow-hidden">
-          <div class="relative h-56 overflow-hidden">
-            <img src="‪Portfolio - Creative Developer - Google Chrome‬ 2025-07-06 17-13-28 - frame at 0m0s.jpg"
-              alt="Portfolio" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">My Portfolio Website</h3>
-            <p class="text-gray-300">Immersive space-themed website with parallax scrolling and responsive design.
-            </p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Coming Soon In Behance</span>
-              <i class="ri-time-fill text-white text-base no-underline"></i>
-            </div>
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-red-900/30 text-orange-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-purple-900/30 text-orange-300">HTML5</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-blue-900/30 text-blue-300">CSS3</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-yellow-900/30 text-yellow-300">JavaScript</span>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-        <!-- Extra Project 6 -->
-
-
-
-        <a href="https://www.behance.net/gallery/238305553/User-Flow-Authentication-Journey"
-          class="project-card rounded-lg overflow-hidden">
-          <div class="relative h-56 overflow-hidden">
-            <img src="Frame 2.jpg" alt="Portfolio" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">Gor3a Mobile App</h3>
-            <p class="text-gray-300">I designed the Splash, Onboarding, and Authentication screens (Login, Sign Up,
-              Forgot Password) for a Medication Reminder App as part of its first UX/UI phase.
-            </p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Open In Behance</span>
-              <i class="ri-behance-line text-white text-base no-underline"></i>
-            </div>
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-red-900/30 text-orange-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-purple-900/30 text-orange-300">FigJam</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-blue-900/30 text-blue-300">Miro</span>
-            </div>
-          </div>
-        </a>
-
-
-
-
-
-
-
-        <!-- Extra Project 7 -->
-
-
-
-        <a href="https://www.behance.net/gallery/232163285/Home-Page-Re-Design"
-          class="project-card rounded-lg overflow-hidden">
-          <div class="relative h-56 overflow-hidden">
-            <img src="1.jpg" alt="Portfolio" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-bold">TOM APP Re-Design </h3>
-            <p class="text-gray-300">TOM aims to bridge the gap between users
-              and their medical needs through
-              technology — providing smart solutions
-              that prioritize user comfort,
-              speed, and clarity.
-            </p>
-            <div class="flex items-center gap-2 text-sm text-primary w-max">
-              <span class="underline">Open In Behance</span>
-              <i class="ri-behance-line text-white text-base no-underline"></i>
-            </div>
-            <div class="flex space-x-3">
-              <span class="px-3 py-1 text-xs rounded-full bg-red-900/30 text-orange-300">Figma</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-purple-900/30 text-orange-300">FigJam</span>
-              <span class="px-3 py-1 text-xs rounded-full bg-blue-900/30 text-blue-300">Miro</span>
-            </div>
-          </div>
-        </a>
-
-
-
-
-
-
-
-      </div>
-
-
-
-
-
-
-
-      <!-- Show More Button -->
-      <div class="mt-12 text-center">
-        <button onclick="toggleProjects()" id="more-btn"
-          class="inline-block px-8 py-3 rounded-button border border-purple-500/50 hover:bg-purple-900/20 whitespace-nowrap transition-all duration-300">
-          More Projects
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    function toggleProjects() {
-      const extra = document.getElementById("extra-projects");
-      const btn = document.getElementById("more-btn");
-
-      if (extra.classList.contains("hidden")) {
-        extra.classList.remove("hidden");
-        setTimeout(() => {
-          extra.classList.remove("opacity-0", "translate-y-4");
-          btn.textContent = "Show Less";
-        }, 50);
-      } else {
-        extra.classList.add("opacity-0", "translate-y-4");
-        setTimeout(() => {
-          extra.classList.add("hidden");
-          btn.textContent = "More Projects";
-        }, 700);
-      }
-    }
-  </script>
-
-  <!-- Contact Section -->
-
-  <section id="contact" class="animate-on-scroll py-20 relative">
-    <div class="glow-circle bottom-1/4 right-1/4 opacity-40"></div>
-    <div class="container mx-auto px-6 relative z-10">
-      <div class="max-w-4xl mx-auto bg-purple-900/10 backdrop-blur-lg rounded-xl p-8 border border-purple-500/20">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div class="space-y-6">
-            <h2 class="text-3xl font-bold">Let's Work Together</h2>
-            <p class="text-gray-300">Have a project in mind? I'd love to hear about it. Let's discuss how we can bring
-              your ideas to life.</p>
-            <div class="space-y-4">
-              <div class="flex items-center space-x-4">
-                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-purple-900/30">
-                  <i class="ri-mail-line"></i>
-                </div>
-                <span>bahaamohamed473@gmail.com</span>
-              </div>
-              <div class="flex items-center space-x-4">
-                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-purple-900/30">
-                  <i class="ri-phone-line"></i>
-                </div>
-                <span>+20 109 203 4776</span>
-              </div>
-              <div class="flex items-center space-x-4">
-                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-purple-900/30">
-                  <i class="ri-map-pin-line"></i>
-                </div>
-                <span>6 October, EG</span>
-              </div>
-            </div>
-            <div class="flex space-x-4 pt-4">
-              <a href="https://www.instagram.com/mo.tiply?igsh=MTA5azludmtkcHdmMg=="
-                class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-purple-900/30">
-                <i class="ri-instagram-line"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/mohamed-bahaa-ab47722a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-purple-900/30">
-                <i class="ri-linkedin-line"></i>
-              </a>
-              <a href="https://wa.me/+201092034776"
-                class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-purple-900/30">
-                <i class="ri-whatsapp-line"></i>
-              </a>
-              <a href="https://www.behance.net/mohamedbahaa46"
-                class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-purple-900/30">
-                <i class="ri-behance-line"></i>
-              </a>
-            </div>
-          </div>
-          <div>
-            <form id="contact-form" class="space-y-4">
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
-                <input type="text" id="name" name="from_name" required
-                  class="w-full px-4 py-3 bg-black/30 border border-purple-500/30 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-white"
-                  placeholder="Your name">
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                <input type="email" id="email" name="from_email" required
-                  class="w-full px-4 py-3 bg-black/30 border border-purple-500/30 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-white"
-                  placeholder="Your email">
-              </div>
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                <textarea id="message" name="message" rows="4" required
-                  class="w-full px-4 py-3 bg-black/30 border border-purple-500/30 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-white"
-                  placeholder="Your message"></textarea>
-              </div>
-              <button type="submit" class="btn-primary px-8 py-3 rounded-button font-medium w-full whitespace-nowrap">
-                Send Message
-              </button>
-            </form>
-
-          </div>
+        <div class="flex gap-6">
+          <a href="https://www.linkedin.com/in/mohamed-bahaa-ab47722a8" target="_blank"
+            class="text-slate-400 hover:text-indigo-600 transition-colors transform hover:scale-110"><i
+              data-lucide="linkedin"></i></a>
+          <a href="https://www.behance.net/mohamedbahaa46" target="_blank"
+            class="text-slate-400 hover:text-indigo-600 transition-colors transform hover:scale-110">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22 7h-7v2h7V7zm1.72 5.3c-.11-.57-.36-1.12-.76-1.63-.4-.51-.93-.93-1.58-1.25s-1.42-.48-2.29-.48c-.9 0-1.71.2-2.42.59-.71.39-1.27.94-1.68 1.63-.42.7-.63 1.51-.63 2.45 0 .95.2 1.77.62 2.46.41.69.96 1.23 1.66 1.63.7.39 1.52.59 2.45.59.81 0 1.55-.15 2.21-.46.66-.3 1.22-.72 1.68-1.25.46-.53.78-1.14.95-1.84h-2.46c-.16.37-.4.68-.73.91-.32.23-.74.34-1.26.34-.58 0-1.04-.15-1.39-.46-.35-.3-.55-.7-.62-1.18h6.47c.01-.13.01-.29.01-.48-.01-.58-.09-1.06-.23-1.47zm-5.46-.9c.35-.29.81-.43 1.36-.43.54 0 .99.14 1.35.43.36.28.56.7.59 1.26h-3.87c.02-.56.21-.98.57-1.26zM7.34 4.54H0v15.22h7.68c1.23 0 2.29-.22 3.16-.67.87-.45 1.53-1.07 1.98-1.86.45-.79.68-1.71.68-2.76 0-1.15-.29-2.09-.88-2.81-.59-.72-1.42-1.2-2.5-1.44v-.11c.82-.2 1.48-.63 1.95-1.27.48-.64.72-1.44.72-2.45 0-.96-.23-1.8-.68-2.51-.46-.72-1.1-1.27-1.95-1.65-.84-.39-1.86-.59-3.04-.59zm-4.7 13.06v-5h4.43c.73 0 1.32.18 1.75.54.44.36.65.86.65 1.49 0 .64-.22 1.14-.65 1.52-.44.37-1.04.56-1.8.56H2.64zm0-6.95V6.44h4.16c.64 0 1.15.15 1.53.45.38.3.57.73.57 1.28 0 .54-.18.96-.54 1.26-.36.3-.92.45-1.68.45H2.64z" />
+            </svg>
+          </a>
+          <a href="https://wa.me/+201092034776" target="_blank"
+            class="text-slate-400 hover:text-green-500 transition-colors transform hover:scale-110"><i
+              data-lucide="phone"></i></a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- EmailJS Script -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init("J0LT2PEjwdrqSMXlz");
-    })();
-
-    document.getElementById("contact-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      emailjs.sendForm("service_ynh0ezb", "template_p473g6k", this)
-        .then(() => {
-          alert("✅ Message sent successfully!");
-          this.reset();
-        }, (error) => {
-          alert("❌ Failed to send: " + error.text);
-        });
-    });
-  </script>
-
-
-
-  <!-- Footer -->
-  <footer class="py-12 border-t border-purple-900/20">
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="space-y-4">
-          <a href="#" class="text-2xl font-['Pacifico'] text-white">TIPLY</a>
-          <p class="text-gray-400">Creating exceptional digital experiences with creativity and technical expertise.</p>
-        </div>
-        <div class="space-y-4">
-          <h4 class="text-lg font-semibold">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#home" class="footer-link text-gray-400 hover:text-white">Home</a></li>
-            <li><a href="#technologies" class="footer-link text-gray-400 hover:text-white">Technologies</a></li>
-            <li><a href="#projects" class="footer-link text-gray-400 hover:text-white">Projects</a></li>
-            <li><a href="#contact" class="footer-link text-gray-400 hover:text-white">Contact</a></li>
-          </ul>
-        </div>
-        <div class="space-y-4">
-          <h4 class="text-lg font-semibold">Services</h4>
-          <ul class="space-y-2">
-            <li><a href="#contact" class="footer-link text-gray-400 hover:text-white">Web Design</a></li>
-            <li><a href="#contact" class="footer-link text-gray-400 hover:text-white">Mobile Apps Design</a></li>
-            <li><a href="#contact" class="footer-link text-gray-400 hover:text-white">UI/UX Design Services</a></li>
-            <li><a href="#contact" class="footer-link text-gray-400 hover:text-white">Dashboards</a></li>
-          </ul>
-        </div>
-        <div class="space-y-4">
-          <h4 class="text-lg font-semibold">Legal</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="footer-link text-gray-400 hover:text-white">Privacy Policy</a></li>
-            <li><a href="#" class="footer-link text-gray-400 hover:text-white">Terms of Service</a></li>
-            <li><a href="#" class="footer-link text-gray-400 hover:text-white">Cookie Policy</a></li>
-          </ul>
-        </div>
+      <div class="mt-12 pt-8 border-t border-slate-200 text-center text-slate-400 text-sm">
+        © <span id="year"></span> Mo Bahaa. All rights reserved.
       </div>
-    </div>
     </div>
   </footer>
+
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const bg = document.querySelector('.space-bg');
-      const count = 50;
-      for (let i = 0; i < count; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        const size = Math.random() * 2 + 1;
-        star.style.width = star.style.height = `${size}px`;
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.setProperty('--duration', `${Math.random() * 8 + 5}s`);
-        star.style.animationDelay = `${Math.random() * 5}s`;
-        bg.appendChild(star);
+    const PORTFOLIO_CONTENT = {
+      hero: {
+        badge: "UX / UI Designer",
+        titleStart: "Providing ",
+        titleGradient: "The Best",
+        titleEnd: " project experience.",
+        description: "Transforming ideas into exceptional digital experiences with modern technologies and creative solutions that drive business growth and user engagement.",
+        buttonPrimary: "View Projects",
+        buttonSecondary: "Book a Call",
+        trustedText: "Studying Autotronics, Passionate about Design.",
+        statText: "UX/UI Expert"
+      },
+      services: {
+        title: "My Services",
+        subtitle: "How I can help bring your ideas to life with tailored design solutions.",
+        items: [
+          {
+            title: "UI/UX Design",
+            desc: "Creating intuitive, user-centered interfaces that solve real business problems and enhance user satisfaction.",
+            icon: "layout",
+            points: ["User Research", "Wireframing", "Prototyping"]
+          },
+          {
+            title: "Web Design",
+            desc: "Designing responsive, modern, and accessible websites tailored for conversion and brand growth.",
+            icon: "monitor",
+            points: ["Responsive", "Landing Pages", "E-commerce"]
+          },
+          {
+            title: "Mobile Apps Design",
+            desc: "Crafting seamless and engaging mobile experiences optimized for both iOS and Android platforms.",
+            icon: "smartphone",
+            points: ["iOS & Android", "Design Systems", "User Flows"]
+          },
+          {
+            title: "Dashboard Interfaces",
+            desc: "Building complex data visualizations into clean, easy-to-use, and highly functional dashboards.",
+            icon: "pie-chart",
+            points: ["Data Viz", "SaaS Platforms", "Analytics"]
+          }
+        ]
+      },
+      technologies: {
+        titleStart: "My Design ",
+        titleHighlight: "Arsenal",
+        titleEnd: " & Tools",
+        subtitle: "The core software and technologies I use to craft intuitive, high-fidelity user experiences.",
+        items: [
+          { name: "Figma", img: "figma-icon.svg", isWhiteLogo: false },
+          { name: "Framer", img: "framer logo.svg", isWhiteLogo: true },
+          { name: "Sketch", img: "sketch logo.svg", isWhiteLogo: false },
+          { name: "Miro", img: "miro logo.svg", isWhiteLogo: false },
+          { name: "Adobe XD", img: "Frame 12.svg", isWhiteLogo: false },
+          { name: "Illustrator", img: "Frame 14.svg", isWhiteLogo: false },
+          { name: "Photoshop", img: "Frame 13.svg", isWhiteLogo: false },
+          { name: "After Effects", img: "adobe logo.svg", isWhiteLogo: false },
+          { name: "InVision", img: "Frame 11.svg", isWhiteLogo: true },
+          { name: "VS Code", img: "Visual logo.svg", isWhiteLogo: false },
+          { name: "HTML5", img: "id.svg", isWhiteLogo: true },
+          { name: "InDesign", img: "Vector.svg", isWhiteLogo: true },
+          { name: "CSS3", img: "Group.svg", isWhiteLogo: true },
+          { name: "GitHub", img: "get.svg", isWhiteLogo: true }
+        ]
+      },
+      projects: {
+        title: "My Projects",
+        subtitle: "A comprehensive look at my design journey, from rapid challenges to full-scale application designs.",
+        items: [
+          {
+            id: 11,
+            title: "Medica Mobile App",
+            category: "Healthcare UI",
+            image: "Cover Page.png",
+            fallback: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+            summary: "A medical application providing fast and secure video consultations to reduce anxiety and build trust.Features include easy appointment booking, video and Voice consultations, clear doctor information, secure payment, and digital prescription management.",
+            role: "Team Leader / UI/UX Designer",
+            timeline: "2026",
+            problem: "Patients often face long wait times, geographical barriers, and a lack of immediate access to specialized medical advice, leading to delayed treatments and increased health anxiety.",
+            process: [
+              { step: "Requirements Gathering", desc: "Collaborated with medical professionals and law enforcement to define critical health metrics." },
+              { step: "Data Architecture", desc: "Structured highly sensitive health data into logical, easy-to-scan widgets." },
+              { step: "Wireframing Alerts", desc: "Mapped out the real-time notification system for critical patient status changes." },
+              { step: "High-Fidelity UI", desc: "Designed a high-contrast, dark-mode interface suitable for 24/7 monitoring environments." },
+              { step: "Prototyping", desc: "Simulated live smart-watch data syncs and interaction states." }
+            ],
+            solution: "A streamlined Telemedicine mobile app that provides instant, high-quality video and voice consultations, secure digital prescriptions, and an intuitive booking system to ensure healthcare is always within reach.",
+            impact: "Created an intuitive monitoring process specifically tailored for vital recovery programs.",
+            behanceUrl: "https://www.behance.net/gallery/243871867/Medica-Mobile-App",
+            tools: ["Figma", "FigJam", "AI Tools"]
+          },
+          {
+            id: 1,
+            title: "Jobzy - Job Finder App",
+            category: "Mobile App",
+            image: "Mobile-Cover.png",
+            fallback: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&q=80&w=800",
+            summary: "A modern job search platform with AI-powered matching algorithm and intuitive user interface.",
+            role: "UI/UX Designer",
+            timeline: "2024",
+            problem: "Job seekers needed a more streamlined, AI-driven way to match their skills with relevant job postings without feeling overwhelmed.",
+            process: [
+              { step: "Competitor Analysis", desc: "Audited existing job platforms to identify friction points in the application process." },
+              { step: "User Personas", desc: "Developed clear profiles for both job seekers and corporate recruiters." },
+              { step: "Flow Mapping", desc: "Designed an optimized, step-by-step AI matching and onboarding journey." },
+              { step: "Low-Fi Wireframing", desc: "Iterated quickly on layouts focusing purely on readability and hierarchy." },
+              { step: "Visual UI Design", desc: "Applied a modern, accessible color palette to build trust and clarity." }
+            ],
+            solution: "An intuitive mobile app that leverages clean UI and smart matching algorithms.",
+            impact: "A beautifully documented project on Behance demonstrating strong mobile UX principles.",
+            behanceUrl: "https://www.behance.net/gallery/207545999/Jobjzy-App",
+            tools: ["Figma", "Notion", "FigJam"]
+          },
+          {
+            id: 2,
+            title: "Interactive HR Dashboard",
+            category: "Web / Dashboard",
+            image: "Dashboard.svg",
+            fallback: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+            summary: "Comprehensive HR analytics dashboard with real-time data visualization and employee tracking.",
+            role: "UI/UX Designer",
+            timeline: "2024",
+            problem: "HR managers struggled to see an overview of employee performance and company metrics in one unified view.",
+            process: [
+              { step: "Stakeholder Interviews", desc: "Determined which KPIs and metrics were most critical for daily HR operations." },
+              { step: "Data Viz Strategy", desc: "Selected the appropriate chart types (donut, line, bar) for different data sets." },
+              { step: "Grid System Layout", desc: "Established a modular, widget-based architecture for customizable views." },
+              { step: "Component Library", desc: "Built reusable UI components (dropdowns, date pickers, tables) for consistency." },
+              { step: "Final Polish", desc: "Refined the typography and color contrast for optimal screen readability." }
+            ],
+            solution: "A modern dashboard that centralizes tracking, reporting, and analytics.",
+            impact: "Improved visual clarity for data analysts and HR professionals.",
+            behanceUrl: "https://www.behance.net/gallery/226321377/HR-Dashboard",
+            tools: ["Figma", "Miro"]
+          },
+          {
+            id: 3,
+            title: "Saudi Council of Engineers",
+            category: "Web Redesign",
+            image: "head.png",
+            fallback: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
+            summary: "The official website of the Saudi Council of Engineers offers essential services and resources.",
+            role: "UI/UX Designer",
+            timeline: "2024",
+            problem: "The existing website had a cluttered navigation structure making it difficult for engineers to find certification requirements.",
+            process: [
+              { step: "UX Audit", desc: "Conducted a thorough heuristic evaluation of the existing platform to spot pain points." },
+              { step: "Information Architecture", desc: "Restructured the sitemap to logically group resources, news, and e-services." },
+              { step: "Wireframing", desc: "Drafted low-fidelity layouts prioritizing user paths to accreditation." },
+              { step: "Visual Modernization", desc: "Upgraded the brand's digital presence with a cleaner, professional aesthetic." },
+              { step: "Responsive Testing", desc: "Ensured the complex tables and forms scaled perfectly to mobile devices." }
+            ],
+            solution: "A professional, user-friendly experience with easy access to memberships, news, and e-services.",
+            impact: "Streamlined user journey for thousands of engineers seeking accreditation.",
+            behanceUrl: "https://www.behance.net/gallery/230866713/_",
+            tools: ["Figma", "FigJam", "Notion"]
+          },
+          {
+            id: 7,
+            title: "Seven Fortunes Coffee",
+            category: "E-Commerce",
+            image: "Seven Fortunes - Page 1 - Figma 2025-07-07 18-42-06 - Trim.webm",
+            fallback: "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&q=80&w=800",
+            isVideo: true,
+            summary: "Seven Fortunes is a specialty coffee brand offering a premium brewing experience.",
+            role: "UI/UX Designer",
+            timeline: "2024",
+            problem: "The previous site didn't fully reflect the premium quality of the coffee brand.",
+            process: [
+              { step: "Brand Discovery", desc: "Analyzed the brand's core identity to translate their physical premium feel to digital." },
+              { step: "E-Commerce Mapping", desc: "Streamlined the product discovery, cart review, and checkout flows." },
+              { step: "Moodboarding", desc: "Selected elegant, modern typography and a rich, coffee-inspired color palette." },
+              { step: "Visual Polish", desc: "Integrated high-end product photography into sleek, asymmetrical grid layouts." },
+              { step: "Micro-Interactions", desc: "Added subtle hover states and scroll animations to elevate the browsing experience." }
+            ],
+            solution: "A visually stunning e-commerce interface that puts the product front and center.",
+            impact: "Created a Behance-worthy case study.",
+            behanceUrl: "https://www.behance.net/gallery/230074281/Re-Design-SevenFortunes-Website",
+            tools: ["Figma", "FigJam"]
+          },
+          {
+            id: 9,
+            title: "Gor3a Mobile App",
+            category: "UX / UI",
+            image: "Frame 2.jpg",
+            fallback: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
+            summary: "Designed the Splash, Onboarding, and Authentication screens for a Medication Reminder App.",
+            role: "UI/UX Designer",
+            timeline: "2025",
+            problem: "Authentication processes can often be high-friction points leading to user drop-off.",
+            process: [
+              { step: "Empathy Mapping", desc: "Studied the needs and frustrations of patients managing multiple daily medications." },
+              { step: "Flow Architecture", desc: "Created seamless user journeys for secure signup, login, and initial setup." },
+              { step: "Wireframing", desc: "Designed distraction-free layouts to minimize cognitive load during data entry." },
+              { step: "Medical UI Aesthetic", desc: "Applied a clean, calming visual style utilizing trust-building color psychology." },
+              { step: "Interactive Prototyping", desc: "Built clickable models to test the smoothness of the onboarding sequence." }
+            ],
+            solution: "A streamlined authentication journey that minimizes steps while maintaining security standards.",
+            impact: "Delivered a polished user flow that establishes trust.",
+            behanceUrl: "https://www.behance.net/gallery/238305553/User-Flow-Authentication-Journey",
+            tools: ["Figma", "FigJam", "Miro"]
+          },
+          {
+            id: 10,
+            title: "TOM APP Re-Design",
+            category: "UX / UI",
+            image: "1.jpg",
+            fallback: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
+            summary: "TOM aims to bridge the gap between users and their medical needs through technology - providing smart solutions that prioritize user comfort,speed, and clarity.",
+            role: "UI/UX Designer",
+            timeline: "2025",
+            problem: "The existing platform suffered from a cluttered interface, inconsistent visual hierarchy, and a fragmented user journey, which negatively impacted the overall engagement and brand trust.",
+            process: [
+              { step: "Visual Audit & Analysis", desc: "Analyzed the original homepage to identify friction points, accessibility issues, and areas where the visual hierarchy was failing to guide the user." },
+              { step: "Layout Restructuring", desc: "Streamlined the information architecture to prioritize key content, ensuring a logical flow from the hero section down to the primary call-to-action." },
+              { step: "UI Modernization", desc: "Developed a refined design system with a modernized color palette and typography to enhance brand perception and ensure a contemporary digital feel." },
+              { step: "High-Fidelity Execution", desc: "Crafted the final responsive interface with a focus on whitespace optimization, consistent iconography, and an intuitive mobile-first experience." },
+            ],
+            solution: "A strategic redesign proposal focusing on a clean, modern UI and a simplified navigation flow to enhance usability, reinforce brand identity, and provide a more intuitive digital experience.",
+            impact: "Delivered a polished user flow that establishes trust.",
+            behanceUrl: "https://www.behance.net/gallery/232163285/Home-Page-Re-Design",
+            tools: ["Figma", "FigJam", "Miro"]
+          }
+        ] 
+      },
+      testimonials: {
+        title: "Client Feedback",
+        subtitle: "What people are saying about my work, design process, and collaboration.",
+        items: [
+          {
+            name: "Afnan Mahmoud",
+            role: " Product Designer | UI/UX Trainer",
+            quote: "You showed great dedication and effort, and I wish you all the best in what’s ahead 👏🏻👏🏻✨!",
+            initial: "A"
+          },
+          {
+            name: "Mona Mardy",
+            role: "Product Designer",
+            quote: "Your work is very beautiful. Good luck, Mo.",
+            initial: "M"
+          },
+          {
+            name: "Raghad Abdeln",
+            role: "UI UX Designer, Part of the medica team",
+            quote: "Thank you for your leadership, patience, and continuous support. Learned a lot through this project, and I’m truly grateful to be part of this team ✨",
+            initial: "R"
+          }
+        ]
+      },
+      contact: {
+        email: "bahaamohamed473@gmail.com",
+        phone: "+20 109 203 4776",
+        location: "6 October, EG",
+        linkedin: "https://www.linkedin.com/in/mohamed-bahaa-ab47722a8",
+        behance: "https://www.behance.net/mohamedbahaa46",
+        whatsapp: "https://wa.me/+201092034776"
       }
-    });
-  </script>
+    };
 
-  <script id="scrollAnimation">
-    document.addEventListener('DOMContentLoaded', function () {
-      const navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetSection = document.querySelector(targetId);
-          window.scrollTo({
-            top: targetSection.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        });
-      });
-    });
-  </script>
-  <script id="formValidation">
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.querySelector('form');
-      if (form) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          const nameInput = document.getElementById('name');
-          const emailInput = document.getElementById('email');
-          const messageInput = document.getElementById('message');
-          let isValid = true;
-          if (!nameInput.value.trim()) {
-            nameInput.classList.add('border-red-500');
-            isValid = false;
-          } else {
-            nameInput.classList.remove('border-red-500');
-          }
-          if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
-            emailInput.classList.add('border-red-500');
-            isValid = false;
-          } else {
-            emailInput.classList.remove('border-red-500');
-          }
-          if (!messageInput.value.trim()) {
-            messageInput.classList.add('border-red-500');
-            isValid = false;
-          } else {
-            messageInput.classList.remove('border-red-500');
-          }
-          if (isValid) {
-            alert('Thank you for your message! I will get back to you soon.');
-            form.reset();
-          }
-        });
+    window.showHome = function () { renderHome(); };
+    window.openProject = function (id) { renderProject(id); };
+
+    window.handleNavClick = function (e, sectionId) {
+      e.preventDefault();
+      if (document.querySelector('article')) {
+        renderHome();
+        setTimeout(() => {
+          const section = document.getElementById(sectionId);
+          if (section) section.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      } else {
+        const section = document.getElementById(sectionId);
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
       }
-    });
-  </script>
+      document.getElementById('mobile-menu').classList.add('hidden');
+    };
 
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray(".animate-on-scroll").forEach((el) => {
-      gsap.from(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: "top 90%",
-          toggleActions: "play none none none"
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out"
+    window.toggleMobileMenu = function () {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    };
+
+    window.showMoreProjects = function () {
+      document.querySelectorAll('.extra-project').forEach((el, index) => {
+        el.classList.remove('hidden');
+        setTimeout(() => { el.classList.add('is-visible'); }, 50 + (index * 100));
       });
-    });
-  </script>
+      document.getElementById('show-more-container').style.display = 'none';
+    };
 
-  <!-- إضافة سكربت لعكس ترتيب عناصر المشاريع -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      function reverseChildren(container) {
-        if (!container) return;
-        const nodes = Array.from(container.children);
-        for (let i = nodes.length - 1; i >= 0; i--) {
-          container.appendChild(nodes[i]);
+    function renderHome() {
+      const app = document.getElementById('app-content');
+      const c = PORTFOLIO_CONTENT;
+      window.scrollTo(0, 0);
+
+      const endlessTestimonials = [...c.testimonials.items, ...c.testimonials.items, ...c.testimonials.items, ...c.testimonials.items];
+
+      app.innerHTML = `
+        <section class="min-h-[90vh] flex items-center justify-center relative overflow-hidden pt-10">
+          <div class="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-indigo-200 rounded-full blur-3xl opacity-30 animate-blob"></div>
+          <div class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-200 rounded-full blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+          <div class="absolute top-[20%] left-[20%] w-[300px] h-[300px] bg-purple-200 rounded-full blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+
+          <div class="container mx-auto px-6 relative z-10 text-center md:text-left md:flex items-center justify-between gap-12 text-slate-900">
+            <div class="md:w-3/5 reveal-on-scroll">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold tracking-wide uppercase mb-6 border border-indigo-100">
+                <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                ${c.hero.badge}
+              </div>
+              <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight">
+                ${c.hero.titleStart} <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">${c.hero.titleGradient}</span><br/>${c.hero.titleEnd}
+              </h1>
+              <p class="text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed mx-auto md:mx-0">
+                ${c.hero.description}
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <button onclick="window.handleNavClick(event, 'projects')" class="btn-shine px-8 py-4 bg-indigo-600 text-white rounded-lg font-medium shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+                  ${c.hero.buttonPrimary} <i data-lucide="arrow-right" width="18"></i>
+                </button>
+                <a href="https://calendly.com/bahaamohamed473/30min" target="_blank" class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-lg font-medium shadow-sm hover:border-indigo-600 hover:text-indigo-600 hover:shadow-md transition-all text-center">
+                  ${c.hero.buttonSecondary}
+                </a>
+              </div>
+              <div class="mt-12 flex items-center gap-4 justify-center md:justify-start text-sm text-slate-500 font-medium">
+                ${c.hero.trustedText}
+              </div>
+            </div>
+            
+            <div class="hidden md:block md:w-2/5 reveal-on-scroll delay-200">
+              <div class="relative animate-float">
+                <div class="relative bg-gradient-to-br from-indigo-600 to-violet-700 rounded-3xl p-8 shadow-2xl transition-transform duration-500 hover:scale-105 border border-indigo-500/30">
+                  <div class="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl animate-bounce" style="animation-duration: 3s">
+                    <div class="flex items-center gap-2">
+                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <span class="text-sm font-bold text-slate-700">${c.hero.statText}</span>
+                    </div>
+                  </div>
+                  <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
+                    <div class="flex gap-4 mb-4 items-center text-white">
+                      <div class="w-12 h-12 rounded-full bg-white/20"></div>
+                      <div class="space-y-2">
+                        <div class="h-3 w-24 bg-white/20 rounded-full"></div>
+                        <div class="h-3 w-16 bg-white/20 rounded-full"></div>
+                      </div>
+                    </div>
+                    <div class="h-28 w-full bg-white/10 rounded-lg mb-4"></div>
+                    <div class="flex justify-between items-center">
+                      <div class="h-8 w-24 bg-indigo-400 rounded-md"></div>
+                      <div class="h-8 w-8 bg-white/20 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" class="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
+          <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+              <div class="lg:col-span-5 lg:sticky lg:top-32 reveal-on-scroll">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-bold mb-6">Capabilities</span>
+                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-[1.1]">${c.services.title}</h2>
+                <p class="text-xl text-slate-600 leading-relaxed">${c.services.subtitle}</p>
+              </div>
+              <div class="lg:col-span-7 flex flex-col gap-8">
+                ${c.services.items.map((service, index) => `
+                  <div class="group relative bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-200 overflow-hidden hover:border-indigo-300 hover:shadow-[0_20px_50px_-12px_rgba(79,70,229,0.15)] transition-all duration-500 reveal-on-scroll">
+                    <div class="absolute -right-6 -bottom-6 text-[150px] font-black text-slate-50 group-hover:text-indigo-50/50 transition-colors duration-500 leading-none z-0 select-none pointer-events-none">0${index + 1}</div>
+                    <div class="relative z-10">
+                      <div class="w-16 h-16 rounded-[1.25rem] bg-indigo-50 text-indigo-600 flex items-center justify-center mb-8 border border-indigo-100 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500 shadow-sm">
+                        <i data-lucide="${service.icon}" class="w-8 h-8"></i>
+                      </div>
+                      <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">${service.title}</h3>
+                      <p class="text-slate-600 text-lg leading-relaxed mb-8">${service.desc}</p>
+                      <div class="flex flex-wrap gap-2">
+                        ${service.points.map(s => `<span class="px-4 py-2 rounded-full bg-slate-50 text-slate-700 text-sm font-semibold border border-slate-200 group-hover:border-indigo-200 group-hover:bg-indigo-50 transition-colors">${s}</span>`).join('')}
+                      </div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="technologies" class="py-24 md:py-32 bg-white overflow-hidden border-y border-slate-100">
+          <div class="container mx-auto px-6 max-w-7xl relative">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal-on-scroll">
+              <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">${c.technologies.titleStart}<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">${c.technologies.titleHighlight}</span><br/>${c.technologies.titleEnd}</h2>
+              <p class="text-xl text-slate-600 leading-relaxed">${c.technologies.subtitle}</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 reveal-on-scroll delay-100 max-w-5xl mx-auto px-4">
+              ${c.technologies.items.map((tech) => `
+                <div class="group relative flex items-center justify-center w-20 h-20 md:w-28 md:h-28 bg-white rounded-[1.5rem] border border-slate-200 shadow-sm transition-all duration-300 z-10 hover:z-20 hover:scale-110 hover:border-indigo-400 hover:shadow-[0_15px_40px_-10px_rgba(79,70,229,0.2)]" title="${tech.name}">
+                  <img src="${tech.img}" alt="${tech.name}" 
+                       class="w-10 h-10 md:w-14 md:h-14 object-contain transition-all duration-500 group-hover:scale-110 ${tech.isWhiteLogo ? 'invert opacity-80 group-hover:opacity-100' : ''}" 
+                       onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'font-bold text-center text-sm md:text-base text-slate-800 transition-colors group-hover:text-indigo-600\\'>${tech.name}</span>';">
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="py-20 md:py-32 bg-slate-50">
+          <div class="container mx-auto px-6">
+            <div class="mb-12 text-center max-w-2xl mx-auto reveal-on-scroll">
+              <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">${c.projects.title}</h2>
+              <p class="text-slate-600 text-lg md:text-xl">${c.projects.subtitle}</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+              ${c.projects.items.map((project, index) => `
+                <div onclick="window.openProject(${project.id})" class="cursor-pointer reveal-on-scroll block group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-indigo-300 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full ${index >= 3 ? 'hidden extra-project' : ''}">
+                  <div class="relative h-56 overflow-hidden bg-slate-100 border-b border-slate-100">
+                    ${project.isVideo
+          ? `<video src="${project.image}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" autoplay loop muted playsinline></video>`
+          : `<img src="${project.image}" alt="${project.title}" onerror="this.src='${project.fallback}'" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">`
         }
-      }
+                  </div>
+                  <div class="p-6 space-y-4 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">${project.title}</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed line-clamp-2">${project.summary}</p>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-2">
+                      ${project.tools.map(t => `<span class="px-3 py-1 text-xs rounded-full bg-slate-50 text-slate-600 font-medium border border-slate-200">${t}</span>`).join('')}
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mt-2">
+                      <span class="text-sm text-indigo-600 font-bold group-hover:text-indigo-800 transition-colors">View Case Study</span>
+                      <div class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 transition-colors">
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-indigo-600 group-hover:text-white transition-colors group-hover:translate-x-0.5 transform"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+            ${c.projects.items.length > 3 ? `
+              <div class="mt-16 text-center" id="show-more-container">
+                <button onclick="window.showMoreProjects()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-bold shadow-lg hover:bg-indigo-600 hover:-translate-y-1 transition-all group">
+                  More Projects <i data-lucide="chevron-down" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+                </button>
+              </div>
+            ` : ''}
+          </div>
+        </section>
 
-      // عكس ترتيب المشاريع الظاهرة والأساسية
-      reverseChildren(document.getElementById('projects-container'));
-      // عكس ترتيب المشاريع الإضافية (التي تُعرض عند الضغط على More Projects)
-      reverseChildren(document.getElementById('extra-projects'));
+        <section id="testimonials" class="py-24 md:py-32 bg-white overflow-hidden relative border-t border-slate-100">
+          
+          <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="mb-16 md:mb-20 text-center max-w-3xl mx-auto reveal-on-scroll">
+              <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 text-sm font-bold mb-6 border border-indigo-100 shadow-sm">Testimonials</span>
+              <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-[1.1]">${c.testimonials.title}</h2>
+              <p class="text-xl text-slate-600 leading-relaxed">${c.testimonials.subtitle}</p>
+            </div>
+          </div>
+
+          <div class="relative w-full overflow-hidden flex flex-col items-center pause-marquee">
+            <div class="absolute left-0 top-0 bottom-0 w-24 md:w-64 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-24 md:w-64 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none"></div>
+            
+            <div class="flex w-max animate-marquee items-stretch py-4">
+              ${endlessTestimonials.map((t) => `
+                <div class="w-[320px] md:w-[450px] shrink-0 mx-4 bg-white p-8 md:p-10 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-300 transition-all duration-300 relative group flex flex-col justify-between cursor-default">
+                  
+                  <div class="absolute -top-4 -right-2 text-[120px] text-slate-50 font-serif leading-none rotate-12 select-none pointer-events-none group-hover:text-indigo-50 transition-colors">"</div>
+                  
+                  <div class="mb-8 text-indigo-100 group-hover:text-indigo-500 transition-colors duration-500 relative z-10">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 21L16.439 14.504C16.634 13.914 16.731 13.313 16.731 12.698V5H22.017V12.698C22.017 15.655 20.941 18.239 18.788 20.451L14.017 21ZM5.01697 21L7.43896 14.504C7.63496 13.914 7.73196 13.313 7.73196 12.698V5H13.017V12.698C13.017 15.655 11.941 18.239 9.78897 20.451L5.01697 21Z"/></svg>
+                  </div>
+                  
+                  <p class="text-slate-700 text-lg leading-relaxed mb-10 grow font-medium relative z-10">"${t.quote}"</p>
+                  
+                  <div class="flex items-center gap-4 pt-6 border-t border-slate-100 relative z-10">
+                    <div class="w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-lg shadow-lg shrink-0 group-hover:bg-indigo-600 transition-colors duration-500">
+                      ${t.initial}
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">${t.name}</h4>
+                      <p class="text-sm text-slate-500">${t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="py-24 md:py-32 bg-slate-950 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
+          
+          <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+              <div class="reveal-on-scroll">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-indigo-300 text-sm font-bold mb-8 border border-white/10 backdrop-blur-md">Start a Project</span>
+                <h2 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">Let's Work<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Together.</span></h2>
+                <div class="space-y-6">
+                  <a href="mailto:${c.contact.email}" class="group flex items-center gap-6 p-4 -ml-4 rounded-2xl hover:bg-white/5 transition-colors">
+                    <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 border border-white/10 group-hover:bg-indigo-600 transition-all shadow-lg"><i data-lucide="mail" class="w-7 h-7"></i></div> 
+                    <div><div class="text-sm text-indigo-200/60 font-medium uppercase tracking-wider">Email Me</div><div class="text-lg md:text-xl font-semibold break-all">${c.contact.email}</div></div>
+                  </a>
+                  <a href="${c.contact.whatsapp}" target="_blank" class="group flex items-center gap-6 p-4 -ml-4 rounded-2xl hover:bg-white/5 transition-colors">
+                    <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 border border-white/10 group-hover:bg-green-600 transition-all shadow-lg"><i data-lucide="phone" class="w-7 h-7"></i></div> 
+                    <div><div class="text-sm text-indigo-200/60 font-medium uppercase tracking-wider">WhatsApp</div><div class="text-lg md:text-xl font-semibold">${c.contact.phone}</div></div>
+                  </a>
+                </div>
+              </div>
+              <div class="reveal-on-scroll delay-200">
+                <div class="bg-slate-900/50 backdrop-blur-2xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+                  <form id="contact-form" class="space-y-8 relative z-10">
+                    <h3 class="text-3xl font-bold mb-8 tracking-tight">Send a Message</h3>
+                    <div class="relative group pt-4">
+                      <input type="text" name="from_name" required id="name" class="peer w-full bg-transparent border-b-2 border-white/10 px-0 py-3 text-white text-lg placeholder-transparent focus:border-indigo-500 focus:outline-none transition-colors" placeholder="Name">
+                      <label for="name" class="absolute left-0 top-0 text-sm text-indigo-300/70 transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:text-white/40 peer-placeholder-shown:top-6 peer-focus:top-0 peer-focus:text-sm peer-focus:text-indigo-400 cursor-text">Your Name</label>
+                    </div>
+                    <div class="relative group pt-4">
+                      <input type="email" name="from_email" required id="email" class="peer w-full bg-transparent border-b-2 border-white/10 px-0 py-3 text-white text-lg placeholder-transparent focus:border-indigo-500 focus:outline-none transition-colors" placeholder="Email">
+                      <label for="email" class="absolute left-0 top-0 text-sm text-indigo-300/70 transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:text-white/40 peer-placeholder-shown:top-6 peer-focus:top-0 peer-focus:text-sm peer-focus:text-indigo-400 cursor-text">Email Address</label>
+                    </div>
+                    <div class="relative group pt-4">
+                      <textarea name="message" rows="4" required id="message" class="peer w-full bg-transparent border-b-2 border-white/10 px-0 py-3 text-white text-lg placeholder-transparent focus:border-indigo-500 focus:outline-none transition-colors resize-none" placeholder="Message"></textarea>
+                      <label for="message" class="absolute left-0 top-0 text-sm text-indigo-300/70 transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:text-white/40 peer-placeholder-shown:top-6 peer-focus:top-0 peer-focus:text-sm peer-focus:text-indigo-400 cursor-text">Project Details</label>
+                    </div>
+                    <button type="submit" class="w-full py-5 bg-white text-slate-950 rounded-2xl font-black text-lg shadow-xl hover:scale-[1.02] transition-all flex items-center justify-center gap-3 group/btn mt-8">
+                      Send Message <i data-lucide="send" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+
+      initFeatures();
+    }
+
+    function renderProject(projectId) {
+      const project = PORTFOLIO_CONTENT.projects.items.find(p => p.id === projectId);
+      if (!project) return;
+      const app = document.getElementById('app-content');
+      window.scrollTo(0, 0);
+
+      app.innerHTML = `
+        <article class="animate-fade-in pb-20 bg-white">
+          <div class="fixed top-24 left-6 md:left-12 z-40">
+            <button onclick="window.showHome()" class="flex items-center gap-2 px-5 py-3 bg-white/90 backdrop-blur-md border border-slate-200 rounded-full shadow-lg hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200 transition-all text-sm font-bold text-slate-700 group">
+              <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Back
+            </button>
+          </div>
+
+          <header class="pt-40 pb-16 px-6 max-w-4xl mx-auto text-center reveal-on-scroll">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 text-sm font-bold mb-6 border border-indigo-100 shadow-sm">${project.category}</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-8 leading-[1.1] tracking-tight">${project.title}</h1>
+            <p class="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto">${project.summary}</p>
+          </header>
+
+          <div class="border-y border-slate-100 bg-slate-50 mb-20">
+            <div class="container mx-auto px-6 max-w-5xl py-12">
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div><h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">Role</h4><p class="text-slate-900 font-semibold text-lg">${project.role}</p></div>
+                <div><h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">Timeline</h4><p class="text-slate-900 font-semibold text-lg">${project.timeline}</p></div>
+                <div class="col-span-2 md:col-span-1"><h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">Tools</h4><div class="flex flex-wrap gap-2">${project.tools.map(t => `<span class="text-slate-700 font-medium text-sm bg-white border border-slate-200 px-3 py-1 rounded-md shadow-sm">${t}</span>`).join('')}</div></div>
+                <div class="col-span-2 md:col-span-1"><h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">Deliverables</h4><p class="text-slate-900 font-semibold text-lg">Case Study, UI Prototype</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container mx-auto px-6 max-w-6xl mb-32 reveal-on-scroll">
+            <div class="rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200/50 bg-slate-100 aspect-video relative group">
+              ${project.isVideo
+          ? `<video src="${project.image}" class="w-full h-full object-cover" autoplay loop muted playsinline controls></video>`
+          : `<img src="${project.image}" onerror="this.src='${project.fallback}'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">`
+        }
+            </div>
+          </div>
+
+          <section class="container mx-auto px-6 max-w-5xl mb-32">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-24 text-slate-900">
+              <div class="reveal-on-scroll">
+                <div class="w-14 h-14 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-8 border border-rose-100"><i data-lucide="target" class="w-7 h-7"></i></div>
+                <h2 class="text-3xl font-extrabold mb-6 tracking-tight">The Challenge</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">${project.problem}</p>
+              </div>
+              <div class="reveal-on-scroll delay-100">
+                <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-8 border border-emerald-100"><i data-lucide="lightbulb" class="w-7 h-7"></i></div>
+                <h2 class="text-3xl font-extrabold mb-6 tracking-tight">The Solution</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">${project.solution}</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="py-24 md:py-40 bg-slate-950 text-white relative overflow-hidden selection:bg-indigo-500/30">
+            <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-600/10 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+            
+            <div class="container mx-auto px-6 max-w-5xl relative z-10">
+              
+              <div class="text-center mb-24 reveal-on-scroll">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-bold mb-6 border border-indigo-500/20 backdrop-blur-md uppercase tracking-widest">Methodology</span>
+                <h2 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">The Process.</h2>
+                <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed">A strategic, step-by-step breakdown of how this project evolved from an initial concept into a high-fidelity execution.</p>
+              </div>
+
+              <div class="relative w-full pb-32">
+                ${project.process.map((step, idx) => `
+                  <div class="sticky flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-slate-900 border border-slate-800 p-8 md:p-16 rounded-[2.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.5)] mb-8 md:mb-12 origin-top transition-all duration-500 hover:border-indigo-500/50 group"
+                       style="top: ${120 + (idx * 25)}px; z-index: ${idx + 1};">
+                    
+                    <div class="md:w-1/3 flex flex-col items-start justify-center">
+                       <div class="text-[80px] md:text-[120px] font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-indigo-500 to-slate-800 opacity-80 group-hover:opacity-100 transition-opacity duration-500 mb-4">
+                         0${idx + 1}
+                       </div>
+                       <div class="h-1 w-20 bg-indigo-500 rounded-full group-hover:w-32 transition-all duration-500"></div>
+                    </div>
+                    
+                    <div class="md:w-2/3">
+                       <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight group-hover:text-indigo-300 transition-colors">${step.step}</h3>
+                       <p class="text-lg md:text-xl text-slate-400 leading-relaxed">${step.desc}</p>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+
+            </div>
+          </section>
+
+          <section class="container mx-auto px-6 max-w-4xl text-center mb-24 reveal-on-scroll pt-24">
+             <div class="inline-flex items-center justify-center w-20 h-20 bg-indigo-50 text-indigo-600 rounded-full mb-8"><i data-lucide="check-circle-2" class="w-10 h-10"></i></div>
+             <h2 class="text-4xl font-extrabold text-slate-900 mb-8 tracking-tight">Final Outcome</h2>
+             <blockquote class="text-2xl text-slate-600 italic leading-relaxed mb-16 px-8 md:px-16 text-center">"${project.impact}"</blockquote>
+             ${project.behanceUrl !== '#' ? `
+                <a href="${project.behanceUrl}" target="_blank" class="btn-shine inline-flex items-center justify-center gap-3 px-10 py-5 bg-indigo-600 text-white rounded-2xl font-bold shadow-2xl hover:shadow-indigo-500/40 hover:-translate-y-1 transition-all text-lg w-full md:w-auto">View Full Case Study on Behance <i data-lucide="external-link" class="w-6 h-6"></i></a>
+             ` : `<span class="px-10 py-5 bg-slate-100 text-slate-500 rounded-2xl font-bold border border-slate-200">Case Study Coming Soon</span>`}
+          </section>
+        </article>
+      `;
+      lucide.createIcons();
+      observeElements();
+    }
+
+    function initFeatures() {
+      lucide.createIcons();
+      observeElements();
+      const form = document.getElementById("contact-form");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          btn.innerHTML = "Sending...";
+          emailjs.sendForm("service_ynh0ezb", "template_p473g6k", this)
+            .then(() => { alert("✅ Message sent successfully!"); this.reset(); btn.innerHTML = "Sent!"; },
+              (error) => { alert("❌ Failed: " + error.text); btn.innerHTML = "Try Again"; });
+        });
+      }
+    }
+
+    function observeElements() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      emailjs.init("J0LT2PEjwdrqSMXlz");
+      renderHome();
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const splashScreen = document.getElementById('splash-screen');
+      const splashTop = document.getElementById('splash-top');
+      const splashBottom = document.getElementById('splash-bottom');
+      const whiteLine = document.getElementById('white-line');
+      const appContent = document.getElementById('app-content');
+      const mainHeader = document.getElementById('main-header');
+
+      setTimeout(() => {
+        splashTop.classList.add('animate-panel-up');
+        splashBottom.classList.add('animate-panel-down');
+
+        if (whiteLine) {
+          whiteLine.style.display = 'none';
+        }
+
+        setTimeout(() => {
+          appContent.classList.remove('content-hidden');
+          mainHeader.classList.remove('content-hidden');
+        }, 400);
+
+        setTimeout(() => {
+          splashScreen.style.display = 'none';
+        }, 800);
+
+      }, 3000);
+
+      window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 20) { header.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-4'); header.classList.remove('bg-transparent', 'py-6'); }
+        else { header.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-4'); header.classList.add('bg-transparent', 'py-6'); }
+      });
     });
   </script>
-
 </body>
 
 </html>
